@@ -5,6 +5,7 @@ async function userDetails(req, res){
         console.log("req.cookie :", req.cookies.csrftoken)
         const token = req.cookies.token || "";
         const userDetails = await getUserDetailsFromToken(token)
+        console.log("user details :", userDetails)
         return res.status(200).json({
             message : "user - Details",
             data : userDetails,

@@ -3,7 +3,7 @@ const UserModel = require("../models/userModel");
 
 const updateUserDetails= async (req, res)=>{
     try{
-        console.log("req.cookie :", req.cookies)
+      
         const token = req.cookies.token || "";
         const user = await getUserDetailsFromToken(token)
 
@@ -19,6 +19,7 @@ const updateUserDetails= async (req, res)=>{
             data : updatedUser
         })
     }catch(error){
+        console.log("error is ", error.message)
         return res.status(500).json({
             message : error.message ,
             error : true
